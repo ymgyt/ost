@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package ost;
+
+option go_package = "proto";
+
+import "google/protobuf/timestamp.proto";
+
+
+message Task {
+  uint64 id = 1;
+
+  string name = 3;
+  bool deleted = 4;
+
+  enum StateType {
+    Initial = 0;
+    InProgress = 1;
+    Done = 2;
+    Deleted = 3;
+  }
+
+  message State {
+    StateType type = 1;
+    google.protobuf.Timestamp timestamp = 2;
+  }
+
+  repeated State states = 5;
+}
+
+message Project {
+  uint64 id = 1;
+  string name = 2;
+  repeated Task tasks = 3;
+}
+
+
+

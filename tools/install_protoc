@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PROTOC_RELEASE="protoc-${PROTOC_VERSION}-${PROTOC_PLATFORM}"
+PROTOC_PREBUILD="https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/${PROTOC_RELEASE}.zip"
+
+function fetch() {
+    echo "fetch ${PROTOC_PREBUILD}"
+    mkdir -p tmp
+    curl -sSLfo tmp/protoc.zip "${PROTOC_PREBUILD}"
+    (cd tmp && unzip protoc.zip)
+}
+
+function put_protoc() {
+    mv tmp/bin/protoc bin/protoc
+}
+
+function clean() {
+    rm -rf tmp
+}
+
+fetch && put_protoc && clean
