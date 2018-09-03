@@ -31,4 +31,7 @@ quick start
 etc
 ===
 
-*t* ask *m* anag *e* m *e* nt t *o* ol -> t m e e o -> teemo -> *o* mega *s* quad *t* eemo -> ost
+.. code-block:: text
+
+   Task ManagEmEnt tOol -> t m e e o -> teemo -> Omega Squad Teemo -> ost
+          
