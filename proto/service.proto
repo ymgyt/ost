@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ost;
+
+import "task.proto";
+
+service Service {
+  rpc ListTasks(ListTasksRequest) returns (ListTasksResponse);
+};
+
+message ListTasksRequest {}
+
+message ListTasksResponse {
+  repeated Task tasks = 1;
+}

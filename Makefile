@@ -4,6 +4,6 @@ init:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
 protoc:
-	bin/protoc -I=proto --go_out=proto proto/task.proto
+	protoc --proto_path=proto --go_out=plugins=grpc:./proto/ proto/*.proto
 
 .PHONY: init protoc
